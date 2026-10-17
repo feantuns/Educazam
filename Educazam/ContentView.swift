@@ -129,10 +129,8 @@ struct ContentView: View {
         .preferredColorScheme(.light)
         .onAppear { radio.play() }
         .onChange(of: scenePhase) { _, phase in
-            if phase == .active {
-                if !radio.isPlaying { radio.play() }
-            } else if phase == .background {
-                radio.pause()
+            if phase == .active && !radio.isPlaying {
+                radio.play()
             }
         }
     }
